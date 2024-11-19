@@ -17,7 +17,7 @@ function AdminHeader() {
         {/* <UserAvatar /> */}
         {/* <SignOut /> */}
         <form action={handleSignOut}>
-          <Button variant="default" type="submit">
+          <Button variant="link" type="submit" className="text-destructive">
             Sign Out
           </Button>
         </form>

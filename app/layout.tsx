@@ -36,15 +36,6 @@ export default function RootLayout({
           <ReactQueryDevtools />
         </QueryClientProvider>
       </body>
-      {/* <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
-        appId: "54970037-2517-4e16-8242-96e59487962d",
-      });
-    });
-  </script> */}
     </html>
   );
 }

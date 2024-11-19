@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -148,13 +150,10 @@ export default function BlogForm({
     setSections([...newSections]);
   };
 
-  const handleInputChange = (
-    id: string,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleInputChange = (id: string, content: string | undefined) => {
     setSections((prevSections) =>
       prevSections.map((section) =>
-        section.id === id ? { ...section, text: e.target.value } : section
+        section.id === id ? { ...section, text: content } : section
       )
     );
   };
@@ -286,8 +285,9 @@ export default function BlogForm({
         <div></div>
       </div>
       <div
-        className="mt-3 bg-slate-50 border-b-2 pb-2 flex flex-wrap items-center justify-between 
-      sticky top-[45px]"
+        style={{}}
+        className="mt-3 bg-slate-200 border-b-2 pb-2 flex flex-wrap items-center justify-between 
+      sticky top-[45px] z-50 rounded px-3"
       >
         <table className="flex-auto">
           <tbody>
@@ -300,6 +300,7 @@ export default function BlogForm({
                   name="title"
                   placeholder="Title"
                   value={title}
+                  className="border-slate-400"
                   onChange={(e) => setTitle(e.target.value)}
                 ></Input>
               </th>
@@ -313,6 +314,7 @@ export default function BlogForm({
                   value={tags}
                   onChange={setTags}
                   options={TAG_OPTIONS}
+                  className="border-slate-400"
                   badgeClassName="bg-slate-100 text-black border hover:bg-slate-200"
                   placeholder="Select tag..."
                   emptyIndicator={

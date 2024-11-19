@@ -1,11 +1,6 @@
+import TiptapRichTextEditor from "@/components/Tiptap/TiptapRichTextEditor";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import React, {
-  ChangeEventHandler,
-  Dispatch,
-  EventHandler,
-  MouseEventHandler,
-} from "react";
+import React, { MouseEventHandler } from "react";
 import { FiArrowDown, FiArrowUp, FiTrash } from "react-icons/fi";
 
 function TextSection({
@@ -18,7 +13,7 @@ function TextSection({
   onRemove: MouseEventHandler;
   onMoveUp: MouseEventHandler;
   onMoveDown: MouseEventHandler;
-  onInputChange: Function;
+  onInputChange: (id: string, content: string | undefined) => void;
   section: { id: string; sectionType: string; text?: string };
 }) {
   return (
@@ -48,13 +43,12 @@ function TextSection({
         </div>
       </div>
       <div className="mt-1">
-        <Textarea
-          onChange={(e) => onInputChange(section.id, e)}
-          className="bg-white shadow-none resize-none min-h-[300px]"
-          placeholder="Write here.."
-          name="content"
-          value={section.text}
-        ></Textarea>
+        <TiptapRichTextEditor
+          onChange={(newContent: string) =>
+            onInputChange(section.id, newContent)
+          }
+          content={section.text}
+        />
       </div>
     </div>
   );

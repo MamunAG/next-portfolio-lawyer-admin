@@ -56,6 +56,9 @@ export default function SignIn() {
           <CardTitle className="text-3xl font-bold text-center text-gray-800">
             Welcome Back
           </CardTitle>
+          <CardTitle className="text-xl font-bold text-center text-blue-500 underline">
+            KKK Law House
+          </CardTitle>
         </CardHeader>
         <CardContent>
           {globalError && <ErrorMessage error={globalError} />}
@@ -103,7 +106,7 @@ export default function SignIn() {
             </form>
           </Form>
 
-          <span className="text-sm text-gray-500 text-center block my-2">
+          {/* <span className="text-sm text-gray-500 text-center block my-2">
             or
           </span>
           <form className="w-full" action={handleGithubSignin}>
@@ -111,7 +114,7 @@ export default function SignIn() {
               <GitHubLogoIcon className="h-4 w-4 mr-2" />
               Sign in with GitHub
             </Button>
-          </form>
+          </form> */}
         </CardContent>
       </Card>
     </div>
