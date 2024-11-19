@@ -11,21 +11,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 import { signInSchema } from "@/lib/zod";
 import LoadingButton from "@/components/loading-button";
-import {
-  handleCredentialsSignin,
-  handleGithubSignin,
-} from "@/actions/authActions";
+import { handleCredentialsSignin } from "@/actions/authActions";
 import { useState } from "react";
 import ErrorMessage from "@/components/error-message";
-import { Button } from "@/components/ui/button";
 
 export default function SignIn() {
   const [globalError, setGlobalError] = useState<string>("");

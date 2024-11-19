@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableSkeleton from "@/utility/table-skeleton";
 import { useToast } from "@/components/ui/use-toast";
 import { ContactMessage } from "@prisma/client";

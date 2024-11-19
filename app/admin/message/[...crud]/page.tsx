@@ -4,12 +4,8 @@ import React from "react";
 import { PageAction } from "@/utility/page-actions";
 import { useQuery } from "@tanstack/react-query";
 import { ReactQueryKey } from "@/utility/react-query-key";
-import axios from "axios";
-import { HireMe, Tag } from "@prisma/client";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
-import NewHireMeForm from "../new-hire-me-form";
-import { GetRequestById } from "@/actions/hire-me-actions";
 import { GetContactMessageById } from "@/actions/contact-message-actions";
 import ContactMessageForm from "../new-hire-me-form";
 

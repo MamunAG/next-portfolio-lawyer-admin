@@ -5,12 +5,12 @@ import { Hono } from "hono";
 const app = new Hono();
 
 app.get("/", async (c) => {
-  var users = await prismadb.user.findMany();
+  const users = await prismadb.user.findMany();
   return c.json(users);
 });
 
 app.post("/", async (c) => {
-  var user = await prismadb.user.create({
+  const user = await prismadb.user.create({
     data: {
       email: "someone2@yahoo.com",
       name: "someone2",

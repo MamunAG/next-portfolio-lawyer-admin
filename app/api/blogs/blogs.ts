@@ -1,8 +1,6 @@
 // authors.ts
 import prismadb from "@/lib/prismadb";
-import { BlogDetails, BlogTags } from "@prisma/client";
 import { Hono } from "hono";
-import { cors } from "hono/cors";
 import { HTTPException } from "hono/http-exception";
 
 const app = new Hono();

@@ -98,11 +98,6 @@ app.post("/delete/:id", async (c) => {
   if (!store) {
     return c.notFound();
   }
-  const upTag = await prismadb.tag.delete({
-    where: {
-      id: Number(paramId),
-    },
-  });
 
   return c.text("Tag deleted successfully.");
 });

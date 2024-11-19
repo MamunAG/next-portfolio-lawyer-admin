@@ -1,11 +1,11 @@
 "use client";
-import useThemeSwitcher from "@/hooks/useThemeSwitcher";
+// import useThemeSwitcher from "@/hooks/useThemeSwitcher";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FiArrowDownCircle } from "react-icons/fi";
 
 function AppBanner() {
-  const [activeTheme] = useThemeSwitcher();
+  // const [activeTheme] = useThemeSwitcher();
 
   return (
     <motion.section
@@ -70,7 +70,8 @@ function AppBanner() {
           className="w-full rounded"
           layout="responsive"
           src={
-            activeTheme === "dark" ? "/images/kokhon.jpg" : "/images/kokhon.jpg"
+            // activeTheme === "dark" ? "/images/kokhon.jpg" : "/images/kokhon.jpg"
+            "/images/kokhon.jpg"
           }
           width={300}
           height={300}

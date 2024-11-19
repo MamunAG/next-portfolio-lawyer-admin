@@ -1,13 +1,9 @@
 import {
-  Calendar,
   Home,
   Inbox,
-  Search,
-  Settings,
   MessageCircle,
   LucideGitPullRequest,
   Tag,
-  PaintbrushVerticalIcon,
 } from "lucide-react";
 
 import {

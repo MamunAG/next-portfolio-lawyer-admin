@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler } from "react";
 import { FiArrowUp, FiArrowDown, FiTrash } from "react-icons/fi";
 
 const ImageSection = ({
@@ -14,9 +14,10 @@ const ImageSection = ({
   section: {
     id: string;
     sectionType: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     imagePreview?: any;
   };
-  onImageChange: Function;
+  onImageChange: (id: string, e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemove: MouseEventHandler;
   onMoveUp: MouseEventHandler;
   onMoveDown: MouseEventHandler;

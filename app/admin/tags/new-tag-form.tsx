@@ -1,7 +1,7 @@
 "use client";
 
 import { Tag } from "@prisma/client";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,12 +19,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 import { ReactQueryKey } from "@/utility/react-query-key";
 import { useRouter } from "next/navigation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
-import axios from "axios";
 import { PageAction } from "@/utility/page-actions";
 import { cn } from "@/lib/utils";
 
@@ -43,7 +41,6 @@ export default function NewTagForm({
   data: Tag | undefined;
   pageAction: string;
 }) {
-  const { toast } = useToast();
   const queryClient = useQueryClient();
   const route = useRouter();
 
@@ -85,7 +82,7 @@ export default function NewTagForm({
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
-    var data: Tag = {
+    const data: Tag = {
       id: values.id,
       name: values.name,
       isActive: values.isActive,

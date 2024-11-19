@@ -1,16 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React from "react";
 
-import { Button } from "@/components/ui/button";
 import TableSkeleton from "@/utility/table-skeleton";
 import { useToast } from "@/components/ui/use-toast";
-import { PageAction } from "@/utility/page-actions";
 import { HireMeTable } from "./hire-me-table";
 import { GetAllRequest } from "@/actions/hire-me-actions";
 import { HireMe } from "@prisma/client";
-import { error } from "console";
 
 export default function HireMePage() {
   const { toast } = useToast();
