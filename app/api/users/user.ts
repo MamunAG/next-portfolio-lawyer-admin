@@ -10,14 +10,27 @@ app.get("/", async (c) => {
 });
 
 app.post("/", async (c) => {
+  const { email, name, password } = await c.req.json();
   const user = await prismadb.user.create({
     data: {
-      email: "someone2@yahoo.com",
-      name: "someone2",
-      password: "12345",
+      email,
+      name,
+      password,
     },
   });
   return c.json(user);
+});
+
+app.get("/get-by-email", async (c) => {
+  console.log(await c.req.query());
+
+  // const { email } = await c.req.query();
+  // const user = await prismadb.user.findFirst({
+  //   where: { email: email.toString() },
+  // });
+  // return c.json(await c.req.query());
+  const users = await prismadb.user.findMany();
+  return c.json(users);
 });
 
 app.get("/:id", async (c) => {

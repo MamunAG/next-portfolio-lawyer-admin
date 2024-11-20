@@ -2,6 +2,8 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import { signInSchema } from "./lib/zod";
+import { saltAndHashPassword } from "./utility/password";
+import { getUserFromDb } from "./actions/user-action";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -24,14 +26,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           console.error("Invalid credentials:", parsedCredentials.error.errors);
           return null;
         }
+        const { email, password } = await signInSchema.parseAsync(credentials);
+        const pwHash = await saltAndHashPassword(password);
+        user = await getUserFromDb(email, pwHash);
         // get user
 
-        user = {
-          id: "1",
-          name: "Aditya Singh",
-          email: "jojo@jojo.com",
-          role: "admin",
-        };
+        // user = {
+        //   id: "1",
+        //   name: "Aditya Singh",
+        //   email: "jojo@jojo.com",
+        //   role: "admin",
+        // };
 
         if (!user) {
           console.log("Invalid credentials");

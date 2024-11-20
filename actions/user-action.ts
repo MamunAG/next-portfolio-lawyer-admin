@@ -10,5 +10,4 @@ export async function getUserFromDb(
   return await prismadb.user.findFirst({
     where: { email, password: pwHash },
   });
-  return await prismadb.user.findFirst();
 }
