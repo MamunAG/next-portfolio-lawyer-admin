@@ -4,10 +4,10 @@ import { Hono } from "hono";
 
 const app = new Hono();
 
-app.get("/", async (c) => {
-  const users = await prismadb.user.findMany();
-  return c.json(users);
-});
+// app.get("/", async (c) => {
+//   const users = await prismadb.user.findMany();
+//   return c.json(users);
+// });
 
 app.post("/", async (c) => {
   const { email, name, password } = await c.req.json();

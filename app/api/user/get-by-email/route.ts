@@ -4,5 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest, res: NextResponse) {
   const users = await prismadb.user.findMany();
-  return NextResponse.json({ dfsd: "new uiese" });
+  return NextResponse.json(users);
 }
+
+// export function GET(req: NextRequest, res: NextResponse) {
+//   return NextResponse.json({ kkk: "dsaf" });
+// }

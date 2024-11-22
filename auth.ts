@@ -2,8 +2,9 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import { signInSchema } from "./lib/zod";
-import { saltAndHashPassword } from "./utility/password";
+import { comparePassword, saltAndHashPassword } from "./utility/password";
 import { getUserFromDb } from "./actions/user-action";
+import { User } from "@prisma/client";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -18,32 +19,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         },
       },
       async authorize(credentials) {
-        let user = null;
-
         // validate credentials
         const parsedCredentials = signInSchema.safeParse(credentials);
         if (!parsedCredentials.success) {
           console.error("Invalid credentials:", parsedCredentials.error.errors);
           return null;
         }
+
         const { email, password } = await signInSchema.parseAsync(credentials);
-        const pwHash = await saltAndHashPassword(password);
-        user = await getUserFromDb(email, pwHash);
-        // get user
+        const user = await getUserFromDb(email);
 
-        // user = {
-        //   id: "1",
-        //   name: "Aditya Singh",
-        //   email: "jojo@jojo.com",
-        //   role: "admin",
-        // };
-
-        if (!user) {
+        if (!user || !user.password) {
           console.log("Invalid credentials");
           return null;
         }
 
-        return user;
+        const passValidate = await comparePassword(password, user.password);
+
+        if (passValidate) {
+          return user;
+        } else {
+          return null;
+        }
       },
     }),
   ],
