@@ -13,7 +13,7 @@ export async function Save(tag: Tag) {
     throw new Error("Tag name must be at least 2 character.");
   }
 
-  var preTag = await prismadb.tag.findFirst({
+  const preTag = await prismadb.tag.findFirst({
     where: {
       name: name,
     },
