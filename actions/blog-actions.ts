@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable prefer-const */
 "use server";
 
 import prismadb from "@/lib/prismadb";
@@ -64,7 +66,7 @@ export async function Save({
     throw new Error("Details is required");
   }
 
-  var preBlogTitle = await prismadb.blogMaster.findFirst({
+  let preBlogTitle = await prismadb.blogMaster.findFirst({
     where: {
       title: blogMaster.title,
     },
@@ -144,7 +146,7 @@ export async function Update({
     throw new Error("Bad request. Request not consistent.");
   }
 
-  var preBlogTitle = await prismadb.blogMaster.findFirst({
+  let preBlogTitle = await prismadb.blogMaster.findFirst({
     where: {
       title: blogMaster.title,
       id: { not: Number(blogMaster.id) },
