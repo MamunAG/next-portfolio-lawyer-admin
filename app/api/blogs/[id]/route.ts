@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  res: NextResponse,
   { params }: { params: { id: number } }
 ) {
   try {
