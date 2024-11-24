@@ -25,6 +25,7 @@ function Tags() {
     getData().then((res) => setData(res));
   }, []);
 
+  console.log(tags);
   // const {
   //   data: tags,
   //   isError,
