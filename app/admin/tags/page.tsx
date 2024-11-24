@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import React from "react";
@@ -11,27 +12,37 @@ import { ReactQueryKey } from "@/utility/react-query-key";
 import TableSkeleton from "@/utility/table-skeleton";
 import { useToast } from "@/components/ui/use-toast";
 import { PageAction } from "@/utility/page-actions";
+import { Tag } from "@prisma/client";
 
 function Tags() {
-  const { toast } = useToast();
-  const {
-    data: tags,
-    isError,
-    error,
-  } = useQuery({
-    queryKey: [ReactQueryKey.tags],
-    queryFn: async () => (await axios.get("/api/tag")).data,
-  });
+  // const { toast } = useToast();
+  const [tags, setData] = React.useState<Tag[]>();
 
-  if (isError) {
-    console.log(error.message);
-    toast({
-      variant: "destructive",
-      title: "Uh oh! Something went wrong.",
-      description: "There was a problem with the request.",
-    });
-    return null;
-  }
+  React.useEffect(() => {
+    async function getData() {
+      return (await axios.get("/api/tag")).data;
+    }
+    getData().then((res) => setData(res));
+  }, []);
+
+  // const {
+  //   data: tags,
+  //   isError,
+  //   error,
+  // } = useQuery({
+  //   queryKey: [ReactQueryKey.tags],
+  //   queryFn: async () => (await axios.get("/api/tag")).data,
+  // });
+
+  // if (isError) {
+  //   console.log(error.message);
+  //   toast({
+  //     variant: "destructive",
+  //     title: "Uh oh! Something went wrong.",
+  //     description: "There was a problem with the request.",
+  //   });
+  //   return null;
+  // }
 
   return (
     <div className="">
