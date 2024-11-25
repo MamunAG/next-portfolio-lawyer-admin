@@ -23,8 +23,7 @@ function Tags() {
       return (
         await axios.get("/api/tags/get-all", {
           headers: {
-            "Cache-Control": "no-store", // Prevent caching by CDN and browser
-            Pragma: "no-cache", // For backward compatibility
+            cache: "no-store",
           },
         })
       ).data;
