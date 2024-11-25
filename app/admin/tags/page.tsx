@@ -13,6 +13,8 @@ import TableSkeleton from "@/utility/table-skeleton";
 import { useToast } from "@/components/ui/use-toast";
 import { PageAction } from "@/utility/page-actions";
 import { Tag } from "@prisma/client";
+import prismadb from "@/lib/prismadb";
+import { GetAllTags } from "./tag-data";
 
 export const fetchCache = "force-no-store";
 
@@ -22,6 +24,8 @@ function Tags() {
 
   React.useEffect(() => {
     async function getData() {
+      const tag = GetAllTags();
+      return tag;
       // return (await axios.get("/api/tags/get-all")).data;
       const response = await fetch("/api/tags/get-all", { cache: "no-store" });
       return await response.json();
