@@ -18,7 +18,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   const { data: tag } = useQuery({
     queryKey: [ReactQueryKey.tags, tagId],
     queryFn: async (): Promise<Tag> =>
-      await axios.get(`/api/tag/get-by-id/${tagId}`).then((res) => res.data),
+      await axios.get(`/api/tags/get-by-id/${tagId}`).then((res) => res.data),
   });
 
   if (!pageAction) {
