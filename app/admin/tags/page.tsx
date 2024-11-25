@@ -14,6 +14,8 @@ import { useToast } from "@/components/ui/use-toast";
 import { PageAction } from "@/utility/page-actions";
 import { Tag } from "@prisma/client";
 
+export const fetchCache = "force-no-store";
+
 function Tags() {
   // const { toast } = useToast();
   const [tags, setData] = React.useState<Tag[]>();
