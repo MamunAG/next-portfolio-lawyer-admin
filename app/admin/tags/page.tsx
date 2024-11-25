@@ -20,7 +20,7 @@ function Tags() {
 
   React.useEffect(() => {
     async function getData() {
-      return (await axios.get("/api/tag")).data;
+      return (await axios.get("/api/tag/get-all")).data;
     }
     getData().then((res) => setData(res));
   }, []);

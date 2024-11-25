@@ -1,5 +1,3 @@
-import React from "react";
-
 export const ReactQueryKey = {
   blogs: "blogs",
   blogsView: "blogsView",
