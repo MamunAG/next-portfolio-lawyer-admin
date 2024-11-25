@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import prismadb from "@/lib/prismadb";
 import { NextRequest, NextResponse } from "next/server";
+export const fetchCache = "force-no-store";
 
 export async function GET(
   req: NextRequest,

@@ -2,10 +2,9 @@
 
 import prismadb from "@/lib/prismadb";
 import { NextRequest, NextResponse } from "next/server";
+export const fetchCache = "force-no-store";
 
-export async function GET(
-  req: NextRequest
-) {
+export async function GET(req: NextRequest) {
   const tag = await prismadb.tag.findMany();
 
   if (!tag) {
