@@ -39,7 +39,7 @@ const TiptapRichTextEditor = ({ onChange, content }: any) => {
   return (
     <div className="w-full px-4">
       <ToolbarOfRichTextEditor editor={editor} />
-      <EditorContent editor={editor} />
+      <EditorContent editor={editor} className="bg-white" />
     </div>
   );
 };

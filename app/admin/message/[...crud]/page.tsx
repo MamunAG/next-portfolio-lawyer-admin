@@ -41,7 +41,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   if (params.crud[0] === PageAction.view) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-7/12 ">
+        <div className="w-full sm:w-7/12 ">
           <ContactMessageForm data={hireMeData!} pageAction={PageAction.view} />
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.add) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-7/12 ">
+        <div className="w-full sm:w-7/12 ">
           {/* <NewHireMeForm data={hireMeData} pageAction={PageAction.add} /> */}
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.edit) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-7/12 ">
+        <div className="w-full sm:w-7/12 ">
           {/* <NewHireMeForm data={hireMeData} pageAction={PageAction.edit} /> */}
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.delete) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-7/12 ">
+        <div className="w-full sm:w-7/12 ">
           <ContactMessageForm
             data={hireMeData!}
             pageAction={PageAction.delete}

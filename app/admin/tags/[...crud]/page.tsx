@@ -44,7 +44,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   if (params.crud[0] === PageAction.view) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-5/12 ">
+        <div className="w-full px-5 sm:w-5/12 ">
           <NewTagForm data={tag} pageAction={PageAction.view} />
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.add) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-5/12 ">
+        <div className="w-full px-5 sm:w-5/12 ">
           <NewTagForm data={tag} pageAction={PageAction.add} />
         </div>
       </div>
@@ -60,7 +60,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.edit) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-5/12 ">
+        <div className="w-full px-5 sm:w-5/12 ">
           <NewTagForm data={tag} pageAction={PageAction.edit} />
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function Crud({ params }: { params: { crud: string[] } }) {
   } else if (params.crud[0] === PageAction.delete) {
     return (
       <div className="flex justify-center items-center w-full ">
-        <div className="w-5/12 ">
+        <div className="w-full px-5 sm:w-5/12 ">
           <NewTagForm data={tag} pageAction={PageAction.delete} />
         </div>
       </div>

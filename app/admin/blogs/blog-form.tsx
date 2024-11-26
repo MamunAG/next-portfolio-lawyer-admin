@@ -72,7 +72,8 @@ export default function BlogForm({
     error: tagError,
   } = useQuery({
     queryKey: [ReactQueryKey.tags],
-    queryFn: async (): Promise<Tag[]> => (await axios.get("/api/tag")).data,
+    queryFn: async (): Promise<Tag[]> =>
+      (await axios.get("/api/tags/get-all/" + new Date())).data,
   });
 
   React.useEffect(() => {
